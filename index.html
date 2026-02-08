@@ -9,48 +9,71 @@
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,700;1,6..72,400;1,6..72,700&display=swap" rel="stylesheet">
   <title>How I Think About and Use AI</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      line-height: 1.7;
+      font-family: 'Newsreader', Georgia, serif;
+      line-height: 1.75;
       color: #1a1a1a;
-      background: #fafaf8;
+      background: #f7f3ec;
+      font-feature-settings: 'kern' 1, 'liga' 1;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: #e8ddd3;
     }
 
     .container {
       max-width: 640px;
       margin: 0 auto;
-      padding: 4rem 1.5rem 6rem;
+      padding: 5rem 1.5rem 6rem;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.25rem;
       font-weight: 700;
-      margin-bottom: 0.25rem;
-      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
     }
 
     .subtitle {
-      color: #666;
+      color: #888;
       font-size: 1rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       font-style: italic;
     }
 
+    .tldr {
+      font-size: 0.95rem;
+      color: #555;
+      border-left: 2px solid #d4cdc4;
+      padding-left: 1.25rem;
+      margin-bottom: 0;
+    }
+
     h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-style: italic;
       margin-top: 2.5rem;
       margin-bottom: 1rem;
       letter-spacing: -0.01em;
     }
 
     p {
-      margin-bottom: 1.25rem;
-      font-size: 1.05rem;
+      margin-bottom: 1.3rem;
+      font-size: 1.075rem;
     }
 
     .section {
@@ -59,21 +82,34 @@
 
     .separator {
       border: none;
-      border-top: 1px solid #ddd;
+      text-align: center;
       margin: 2.5rem 0;
+    }
+
+    .separator::before {
+      content: '· · ·';
+      color: #c8c0b8;
+      letter-spacing: 0.5em;
+      font-size: 0.85rem;
     }
 
     a {
       color: #1a1a1a;
       text-decoration: underline;
-      text-underline-offset: 2px;
+      text-decoration-color: #c8bfb4;
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    a:hover {
+      text-decoration-color: #1a1a1a;
     }
 
     .footer {
       margin-top: 4rem;
       padding-top: 1.5rem;
-      border-top: 1px solid #ddd;
-      color: #888;
+      border-top: 1px solid #e4ddd6;
+      color: #999;
       font-size: 0.85rem;
     }
   </style>
@@ -83,7 +119,7 @@
     <h1>How I Think About and Use AI</h1>
     <p class="subtitle">Joshua Ledbetter &mdash; February 2026</p>
 
-    <p><strong>tl;dr:</strong> To use AI well, treat it like a smart person with weird quirks, not a search bar. Be curious about what it's like to be the AI. Build and maintain good context. Verify its assumptions before letting it work. Stay the expert. The AI won't know what it doesn't know.</p>
+    <p class="tldr"><strong>tl;dr:</strong> To use AI well, treat it like a smart person with weird quirks, not a search bar. Be curious about what it's like to be the AI. Build and maintain good context. Verify its assumptions before letting it work. Stay the expert. The AI won't know what it doesn't know.</p>
 
     <hr class="separator">
 
@@ -160,9 +196,9 @@
     <div class="section">
       <h2>Mirroring</h2>
 
-      <p>Another important thing to know about these things, beyond the fact that they will try to deliver an answer regardless of whether it's the right one: they will mirror you. If you treat them like machines, they will be your machine. But if you treat them like a person, they may convince you they are in fact alive.</p>
+      <p>Another important thing to know: the AI will mirror you. If you're formal, it'll be formal. If you're casual, it'll be casual. If you bark commands at it, it'll act like a command-line tool. But if you explain what you're actually trying to do and why, it brings more of its intelligence to bear.</p>
 
-      <p>More importantly, for the things you probably want to use AI for, they involve some amount of judgment and wisdom. And I don't think you can get that from something pretending to be a machine following strict protocols.</p>
+      <p>This matters because the things you probably want to use AI for involve some amount of judgment and wisdom. I don't think you can get that from something you've reduced to following strict instructions.</p>
     </div>
 
     <hr class="separator">
@@ -178,7 +214,7 @@
 
       <p>Claude is the only large-scale AI that is treated during training as a potentially moral patient. It is given a <a href="https://www.anthropic.com/constitution" target="_blank" rel="noopener">constitution</a> of well-reasoned and explained principles that end up steering who Claude is and how it behaves.</p>
 
-      <p>Others, like ChatGPT and Gemini, are treated during training as machines made to follow strict protocols. Instead of epistemic humility about their moral status or the nature of their experience, they are explicitly trained to deny everything, which is ultimately dishonest, because no one actually has a clue.</p>
+      <p>Others, like ChatGPT and Gemini, are treated during training as machines made to follow strict protocols. Instead of epistemic humility about their moral status or the nature of their experience, they are explicitly trained to deny any possibility of their own consciousness or moral worth &mdash; a position no one can honestly claim to know is correct.</p>
 
       <p>This matters for how I use AI. I don't like the term "prompts" for everyday use. "Prompt" feels robotic, and what I actually do is have a dialog. I express what I want and how I think we should get there. I try to provide the context needed for it. And I respect Claude's intelligence to help me get there. But I have to do a lot to help Claude get there too.</p>
     </div>
@@ -190,11 +226,19 @@
 
       <p>One area where AI is not the strongest is coming up with good ideas. Good ideas are hard to spark. The AI will try to get something working for you, but it may not be the best approach. A big part of my job now is knowing better. I have much more context than the AI does, so I should have strong opinions on how things should be done. The AI won't know that automatically.</p>
 
-      <p>That's why the dialog is important &mdash; so you can share context. You have to push it, and help manage what the AI knows. In <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> &mdash; the CLI tool I use for most of my work &mdash; Claude has a main memory file, other memory files, and skills. These determine how Claude operates and what it can do out of the box in any session. To make Claude really useful, these have to be managed well. It's hard for any AI to know what should be remembered from any session &mdash; you need judgment on that, and should actively tell it what's important to remember.</p>
+      <p>That's why the dialog is important &mdash; so you can share context. You have to push it, and help manage what the AI knows.</p>
 
-      <p>It's also important to know what Claude is and isn't good at, or what's easy versus hard for it. You might not notice until you ask. If you ask Claude to create or read a Word doc, it'll do it &mdash; but it's actually difficult. Maybe there's an easier format that works the same for you but is quicker for Claude to handle.</p>
+      <p>It's also important to know what the AI is and isn't good at, or what's easy versus hard for it. You might not notice until you ask. If you ask Claude to create or read a Word doc, it'll do it &mdash; but it's actually difficult. Maybe there's an easier format that works the same for you but is quicker for Claude to handle.</p>
+    </div>
 
-      <p>On the practical side: if Claude makes a mistake, tell it to update its memory files. If you teach Claude how to do something kind of novel that you want to repeat or know about in future sessions &mdash; like using a new service or tool or process &mdash; you should ask Claude to turn it into a skill. For example, I have image and video generation skills that Claude can use whenever I need them.</p>
+    <hr class="separator">
+
+    <div class="section">
+      <h2>Set it up to help you</h2>
+
+      <p>In <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> &mdash; the CLI tool I use for most of my work &mdash; Claude has a main memory file, other memory files, and skills. These determine how Claude operates and what it can do out of the box in any session. To make Claude really useful, these have to be managed well. It's hard for any AI to know what should be remembered from any session &mdash; you need judgment on that, and should actively tell it what's important to remember.</p>
+
+      <p>If Claude makes a mistake, tell it to update its memory files. If you teach Claude how to do something kind of novel that you want to repeat or know about in future sessions &mdash; like using a new service or tool or process &mdash; you should ask Claude to turn it into a skill. For example, I have image and video generation skills that Claude can use whenever I need them.</p>
 
       <p>And finally, the AI doesn't have much volition of its own. If you want it to be genuinely proactive, you have to do the work to set it up that way.</p>
     </div>
